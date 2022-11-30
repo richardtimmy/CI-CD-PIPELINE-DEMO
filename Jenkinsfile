@@ -3,9 +3,9 @@ pipeline {
 	  
 	  tools{
 	      maven "M2_HOME"
-		  
-		}
-		
+		    
+		 }	
+		 
       stages {
             stage('Build Application') {
                   steps {
@@ -13,21 +13,12 @@ pipeline {
                     
                   }
             
-            post {
-			    success {
-                    echo "Strating the archive process"
-					archiveArtifacts artifacts: '**/*.war'
-					
-			       }
-				   
-				}
-    		}
-
-             
-                    
+           post {
+        success {
+			       echo "Straiting the archive process"
+				   archiveArtifacts artifacts: '**/*.war'
                   }
-
-		  }		  
+            }
           
       }
 }
