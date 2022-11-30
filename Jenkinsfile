@@ -12,17 +12,17 @@ pipeline {
                         sh 'mvn clean package'
                     
                   }
-            }
+            
            post {
 		       success {
-			       echo "Straiting the archive process"
+	       echo "Straiting the archive process"
 				   archiveArtifacts artifacts: '**/*.war'
                   }
             }
           
       }
- stages {
-            stage('Build Application') {
+
+            stage('Deploy application') {
                   steps {
                         build job: 'APPLICATION-DEPLOYMENT-JOB'
                     
